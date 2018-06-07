@@ -10,7 +10,7 @@ const mapStateToProps = state => ({
   user: state.user,
 });
 
-class InfoPage extends Component {
+class TraitsPage extends Component {
   
   constructor() {
     super();
@@ -80,4 +80,4 @@ class InfoPage extends Component {
 }
 
 // this allows us to use <App /> in index.js
-export default connect(mapStateToProps)(InfoPage);
+export default connect(mapStateToProps)(TraitsPage);

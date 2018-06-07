@@ -1,17 +1,37 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import axios from 'axios';
 
 import { USER_ACTIONS } from '../../redux/actions/userActions';
-import Button from '@material-ui/core/Button';
+import { Button, Checkbox } from '@material-ui/core';
 
 
 const mapStateToProps = state => ({
   user: state.user,
 });
 
-class InfoPage extends Component {
-  componentDidMount() {
-    this.props.dispatch({type: USER_ACTIONS.FETCH_USER});
+class PowersPage extends Component {
+  
+  constructor() {
+    super();
+    this.state = {
+      powers: [],
+      id: false,
+    };
+  }
+
+  componentDidMount = () => {
+    this.props.dispatch({ type: USER_ACTIONS.FETCH_USER });
+    axios({
+      method: 'GET',
+      url: '/api/powers'
+    }).then((response) => {
+      this.setState({
+        powers: response.data,
+      });
+    }).catch((error) => {
+      console.log('Error on the powers componentDidMount:', error);
+    });
   }
 
   componentDidUpdate() {
@@ -20,7 +40,11 @@ class InfoPage extends Component {
     }
   }
 
-  handleChange = (event) => {
+  handleChange = id => event => {
+    this.setState({ [id]: event.target.checked });
+  };
+
+  handleClick = (event) => {
     this.props.history.push('/gadgets');
   }
 
@@ -28,11 +52,24 @@ class InfoPage extends Component {
     return (
       <div >
         <h1>Powers</h1>
-        <Button onClick={this.handleChange}>Onward!</Button>
+        <p className="Directions">Time to make your hero super! </p>
+        <ul>{this.state.powers.map(data => {
+          return (
+            <li className="powersList" key={data.id}>
+              <Checkbox
+                checked={this.state.checkedBox}
+                onChange={this.handleChange()}
+                value={data.id}
+              />
+              {data.power}
+            </li>
+          );
+        })}
+        </ul>
+        <Button onClick={this.handleClick}>Onward!</Button>
       </div>
     );
   }
 }
 
-// this allows us to use <App /> in index.js
-export default connect(mapStateToProps)(InfoPage);
+export default connect(mapStateToProps)(PowersPage);

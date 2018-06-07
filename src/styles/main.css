@@ -107,6 +107,12 @@ li a:hover {
   border-radius: 0px;
 }
 
+.powersList {
+    margin: 0% 6%;
+    width: 239px;
+    height: 60px;
+}
+
 .traitsList {
     margin: 0% 4%;
     width: 157px;
