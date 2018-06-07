@@ -124,6 +124,16 @@ li a:hover {
     margin: 0% 15%;
 }
 
+.skillsLI {
+    padding: 0% 8%;
+    width: 180px;
+    height: 110px;
+}
+
+.skillsUL {
+    margin: 0% 30%;
+}
+
 .traitsLI {
     padding: 0% 2%;
     width: 157px;
