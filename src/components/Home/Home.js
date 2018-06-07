@@ -9,7 +9,7 @@ const mapStateToProps = state => ({
   user: state.user,
 });
 
-class InfoPage extends Component {
+class HomePage extends Component {
   componentDidMount() {
     this.props.dispatch({type: USER_ACTIONS.FETCH_USER});
   }
@@ -20,19 +20,27 @@ class InfoPage extends Component {
     }
   }
 
-  handleChange = (event) => {
+  handleClickNew = (event) => {
     this.props.history.push('/welcome');
+  }
+
+  handleClickOld = (event) => {
+    this.props.history.push('/login');
   }
 
   render() {
     return (
       <div className='Background' >
-        <Button onClick={this.handleChange}>New Creator</Button>
-        <Button>Returning Creator</Button>
+        <p id='homeButton1'>
+        <Button  onClick={this.handleClickNew}>New Creator</Button>
+        </p>
+        <p id='homeButton2'>
+        <Button  onClick={this.handleClickOld}>Returning Creator</Button>
+        </p>
       </div>
     );
   }
 }
 
 // this allows us to use <App /> in index.js
-export default connect(mapStateToProps)(InfoPage);
+export default connect(mapStateToProps)(HomePage);
