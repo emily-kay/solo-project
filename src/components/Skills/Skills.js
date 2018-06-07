@@ -8,7 +8,9 @@ import { Button, Checkbox, Input } from '@material-ui/core';
 
 const mapStateToProps = state => ({
   user: state.user,
+  state,
 });
+
 
 class SkillsPage extends Component {
 
@@ -41,7 +43,8 @@ class SkillsPage extends Component {
   }
 
   handleChange = id => event => {
-    this.setState({ [id]: event.target.checked });
+    // this.setState({ [id]: event.target.checked });
+    this.props.dispatch({ type: 'SKILL_CHANGED' })
   };
 
   handleClick = (event) => {
@@ -53,13 +56,14 @@ class SkillsPage extends Component {
       <div >
         <h1>Strengths and Weaknesses</h1>
         <p className="Directions">Here are some instructions! </p>
+        <Input value={this.props.state.skillReducer}/>
         <ul className="skillsUL">{this.state.skills.map(data => {
           return (
             <li className="skillsLI" key={data.id}>
               <Input
                 checked={this.state.checkedBox}
                 onChange={this.handleChange()}
-                value= 'number'
+                type= "number"
               />
               {data.skill}
             </li>
