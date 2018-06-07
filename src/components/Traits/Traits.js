@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import axios from 'axios';
 
 import { USER_ACTIONS } from '../../redux/actions/userActions';
-import Button from '@material-ui/core/Button';
+import { Button, Checkbox } from '@material-ui/core';
 
 
 const mapStateToProps = state => ({
@@ -10,8 +11,27 @@ const mapStateToProps = state => ({
 });
 
 class InfoPage extends Component {
-  componentDidMount() {
-    this.props.dispatch({type: USER_ACTIONS.FETCH_USER});
+  
+  constructor() {
+    super();
+    this.state = {
+      traits: [],
+      id: false,
+    };
+  }
+
+  componentDidMount = () => {
+    this.props.dispatch({ type: USER_ACTIONS.FETCH_USER });
+    axios({
+      method: 'GET',
+      url: '/api/traits'
+    }).then((response) => {
+      this.setState({
+        traits: response.data,
+      });
+    }).catch((error) => {
+      console.log('Error on the traits componentDidMount:', error);
+    });
   }
 
   componentDidUpdate() {
@@ -20,7 +40,15 @@ class InfoPage extends Component {
     }
   }
 
-  handleChange = (event) => {
+  // handleChange = (event) => {
+
+  // }
+
+  handleChange = id => event => {
+    this.setState({ [id]: event.target.checked });
+  };
+
+  handleClick = (event) => {
     this.props.history.push('/skills');
   }
 
@@ -28,8 +56,20 @@ class InfoPage extends Component {
     return (
       <div >
         <h1>Personality Traits</h1>
-        
-        <Button onClick={this.handleChange}>Onward!</Button>
+        <ul>{this.state.traits.map(data => {
+          return (
+            <li className="traitsList" key={data.id}>
+              <Checkbox
+                checked={this.state.checkedBox}
+                onChange={this.handleChange()}
+                value={data.id}
+              />
+              {data.traits}
+            </li>
+          );
+        })}
+        </ul>
+        <Button onClick={this.handleClick}>Onward!</Button>
       </div>
     );
   }
