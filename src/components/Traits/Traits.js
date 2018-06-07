@@ -56,6 +56,10 @@ class InfoPage extends Component {
     return (
       <div >
         <h1>Personality Traits</h1>
+        <p className="Directions">Here's your opportunity to build out who your hero is as a person. 
+          How would your hero interact with other people? What values or characteristics
+          do they view as important? How would they describe themselves on their Tinder 
+          profile? Choose wisely. A well rounded character will offer rewards later on. </p>
         <ul>{this.state.traits.map(data => {
           return (
             <li className="traitsList" key={data.id}>
