@@ -44,7 +44,7 @@ class SkillsPage extends Component {
 
   handleChange = id => event => {
     // this.setState({ [id]: event.target.checked });
-    this.props.dispatch({ type: 'SKILL_CHANGED' })
+    this.props.dispatch({ type: 'SKILL_ADDED' })
   };
 
   handleClick = (event) => {
