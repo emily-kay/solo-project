@@ -3,7 +3,7 @@ import user from './userReducer';
 import login from './loginReducer';
 
 const skillReducer = (state = 50, action) => {
-  if (action.type === 'SKILL_ADDED') {
+  if (action.type === 'SKILL_ADDED' && state !== 0) {
     console.log('skillReducer', action);
     return state - 1;
   }
