@@ -53,9 +53,9 @@ class PowersPage extends Component {
       <div >
         <h1>Powers</h1>
         <p className="Directions">Time to make your hero super! </p>
-        <ul>{this.state.powers.map(data => {
+        <ul className="powersUL">{this.state.powers.map(data => {
           return (
-            <li className="powersList" key={data.id}>
+            <li className="powersLI" key={data.id}>
               <Checkbox
                 checked={this.state.checkedBox}
                 onChange={this.handleChange()}

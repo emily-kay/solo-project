@@ -107,16 +107,24 @@ li a:hover {
   border-radius: 0px;
 }
 
-.powersList {
-    margin: 0% 6%;
+.powersLI {
+    padding: 0% 3.25%;
     width: 239px;
+    height: 37px;
+}
+
+.powersUL {
+    margin: 0% 15%;
+}
+
+.traitsLI {
+    padding: 0% 2%;
+    width: 157px;
     height: 60px;
 }
 
-.traitsList {
-    margin: 0% 4%;
-    width: 157px;
-    height: 60px;
+.traitsUL {
+    margin: 0% 12%;
 }
 
 ul {

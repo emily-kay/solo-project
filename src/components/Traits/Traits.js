@@ -40,10 +40,6 @@ class TraitsPage extends Component {
     }
   }
 
-  // handleChange = (event) => {
-
-  // }
-
   handleChange = id => event => {
     this.setState({ [id]: event.target.checked });
   };
@@ -60,9 +56,9 @@ class TraitsPage extends Component {
           How would your hero interact with other people? What values or characteristics
           do they view as important? How would they describe themselves on their Tinder 
           profile? Choose wisely. A well rounded character will offer rewards later on. </p>
-        <ul>{this.state.traits.map(data => {
+        <ul className="traitsUL">{this.state.traits.map(data => {
           return (
-            <li className="traitsList" key={data.id}>
+            <li className="traitsLI" key={data.id}>
               <Checkbox
                 checked={this.state.checkedBox}
                 onChange={this.handleChange()}
