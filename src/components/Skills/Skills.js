@@ -19,8 +19,6 @@ class SkillsPage extends Component {
     super();
     this.state = {
       skills: [],
-      count: 0,
-      id: [],
     };
   }
 
@@ -44,27 +42,9 @@ class SkillsPage extends Component {
     }
   }
 
-  handleAdd = id => event => {
-    if (this.state.count !== 50) {
-      this.setState({ 
-        count: this.state.count + 1,
-        [id]: event.target.changed});
-    }
-    this.props.dispatch({ type: 'SKILL_ADDED' })
-  };
-
   handleClick = (event) => {
     this.props.history.push('/powers');
   }
-
-  handleMinus = id => event => {
-    if (this.state.count !== 0) {
-      this.setState({ 
-        count: this.state.count - 1,
-        [id]: event.target.changed});
-    }
-    this.props.dispatch({ type: 'SKILL_MINUSED' })
-  };
 
   render() {
     return (
@@ -75,7 +55,7 @@ class SkillsPage extends Component {
         <ul className="skillsUL">{this.state.skills.map(data => {
           return (
             <li className="skillsLI" key={data.id}>
-              <SkillsCounter handleAdd={this.handleAdd} handleMinus={this.handleMinus} skill={data.skill} id={data.id} count={this.state.count}/>
+              <SkillsCounter skill={data.skill} id={data.id}/>
             </li>
           );
         })}
