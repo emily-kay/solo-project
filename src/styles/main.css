@@ -123,6 +123,10 @@ li a:hover {
   border-radius: 0px;
 }
 
+.OriginField {
+    margin: 5% 42% 5%;
+}
+
 .powersLI {
     padding: 0% 3.25%;
     width: 239px;

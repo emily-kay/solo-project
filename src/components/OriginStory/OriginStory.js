@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import { USER_ACTIONS } from '../../redux/actions/userActions';
-import Button from '@material-ui/core/Button';
+import { Button, TextField } from '@material-ui/core';
 
 
 const mapStateToProps = state => ({
@@ -11,7 +11,7 @@ const mapStateToProps = state => ({
 
 class InfoPage extends Component {
   componentDidMount() {
-    this.props.dispatch({type: USER_ACTIONS.FETCH_USER});
+    this.props.dispatch({ type: USER_ACTIONS.FETCH_USER });
   }
 
   componentDidUpdate() {
@@ -28,6 +28,9 @@ class InfoPage extends Component {
     return (
       <div >
         <h1>Origin Story</h1>
+        <div className="OriginField">
+          <TextField label="Origin"/>
+        </div>
         <Button onClick={this.handleChange}>Onward!</Button>
       </div>
     );
