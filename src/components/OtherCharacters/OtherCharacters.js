@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import { USER_ACTIONS } from '../../redux/actions/userActions';
-import Button from '@material-ui/core/Button';
+import { Button, TextField } from '@material-ui/core';
 
 
 const mapStateToProps = state => ({
@@ -28,6 +28,13 @@ class InfoPage extends Component {
     return (
       <div >
         <h1>Other Characters</h1>
+        <div className="TextList">
+          <TextField label="Teammates"/>
+          <br />
+          <TextField label="Love Interests"/>
+          <br />
+          <TextField label="Enemies"/>
+        </div>
         <Button onClick={this.handleChange}>Onward!</Button>
       </div>
     );
