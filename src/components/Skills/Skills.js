@@ -5,6 +5,7 @@ import axios from 'axios';
 import { USER_ACTIONS } from '../../redux/actions/userActions';
 import { Button, Checkbox, Input } from '@material-ui/core';
 
+import SkillsCounter from '../SkillsCounter/SkillsCounter';
 
 const mapStateToProps = state => ({
   user: state.user,
@@ -19,7 +20,7 @@ class SkillsPage extends Component {
     this.state = {
       skills: [],
       count: 0,
-      id: false,
+      id: [],
     };
   }
 
@@ -45,7 +46,9 @@ class SkillsPage extends Component {
 
   handleAdd = id => event => {
     if (this.state.count !== 50) {
-      this.setState({ count: this.state.count + 1 });
+      this.setState({ 
+        count: this.state.count + 1,
+        [id]: event.target.changed});
     }
     this.props.dispatch({ type: 'SKILL_ADDED' })
   };
@@ -56,7 +59,9 @@ class SkillsPage extends Component {
 
   handleMinus = id => event => {
     if (this.state.count !== 0) {
-      this.setState({ count: this.state.count - 1 });
+      this.setState({ 
+        count: this.state.count - 1,
+        [id]: event.target.changed});
     }
     this.props.dispatch({ type: 'SKILL_MINUSED' })
   };
@@ -70,10 +75,7 @@ class SkillsPage extends Component {
         <ul className="skillsUL">{this.state.skills.map(data => {
           return (
             <li className="skillsLI" key={data.id}>
-              {data.skill}
-              <h3 id="skillsCount">{this.state.count}</h3>
-              <button className="skillsButton" onClick={this.handleAdd()}>+</button>
-              <button className="skillsButton" onClick={this.handleMinus()}>-</button>
+              <SkillsCounter handleAdd={this.handleAdd} handleMinus={this.handleMinus} skill={data.skill} id={data.id} count={this.state.count}/>
             </li>
           );
         })}
