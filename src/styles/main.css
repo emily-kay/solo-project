@@ -1,3 +1,7 @@
+.AboutList {
+    margin: 5% 40% 5%;
+}
+
 .Background {
     background-image: url(background.svg);
     height: 100%;
@@ -44,6 +48,11 @@ form {
     margin: 20px auto;
     padding: 25px;
     border-radius: 2px;
+}
+
+h2 {
+    margin: 0% 45%;
+    font-size: 70px;
 }
 
 #homeButton1 {
