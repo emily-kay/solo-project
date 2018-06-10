@@ -21,7 +21,7 @@ class InfoPage extends Component {
   }
 
   handleChange = (event) => {
-    this.props.history.push('/register');
+    this.props.history.push('/login');
   }
 
   render() {
