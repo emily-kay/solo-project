@@ -19,7 +19,7 @@ class SkillsCountPage extends Component {
 
     handleAdd = id => event => {
         if (this.state.count !== 20 && this.props.state.skillReducer !== 50 && this.props.state.skillReducer !== 0) {
-            this.props.dispatch({ type: 'SKILL_ADDED', property: this.props.skill.toLowerCase(), payload: this.state.count + 1 })
+            this.props.dispatch({ type: 'SKILL_ADDED', property: this.props.skill, payload: this.state.count + 1 })
             this.setState({
                 count: this.state.count + 1,
             });
@@ -29,7 +29,7 @@ class SkillsCountPage extends Component {
     handleMinus = id => event => {
 
         if (this.state.count !== 0 && this.props.state.skillReducer !== 50 && this.props.state.skillReducer !== 0) {
-            this.props.dispatch({ type: 'SKILL_MINUSED', property: this.props.skill.toLowerCase(), payload: this.state.count - 1 })
+            this.props.dispatch({ type: 'SKILL_MINUSED', property: this.props.skill, payload: this.state.count - 1 })
             this.setState({
                 count: this.state.count - 1
             });

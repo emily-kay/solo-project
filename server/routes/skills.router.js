@@ -14,12 +14,11 @@ router.get('/', (req, res) => {
         });
 });
 
-router.post('/:id', (req, res) => {
+router.post('/', (req, res) => {
     if (req.isAuthenticated()) {
-        console.log(req.body)
-        const queryText = `INSERT INTO "user_skills" ("person_id", "skills_id", "count")
+        const queryText = `INSERT INTO "user_skills" ("person_id", "skills", "count")
                             VALUES ($1, $2, $3)`;
-        pool.query(queryText, [req.user.id, req.body.id, req.body.count])
+        pool.query(queryText, [req.user.id, req.body.skill, req.body.count])
             .then(res.sendStatus(201))
             .catch((err) => {
                 console.log('Error on traits server POST', err);

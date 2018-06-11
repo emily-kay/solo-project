@@ -42,6 +42,10 @@ class SkillsPage extends Component {
     }
   }
 
+  handlePost = (event) => {
+    this.props.dispatch({ type: 'SKILL_POST', property: this.state.skills })
+  }
+
   handleClick = (event) => {
     this.props.history.push('/powers');
   }
@@ -60,6 +64,7 @@ class SkillsPage extends Component {
           );
         })}
         </ul>
+        <Button onClick={this.handlePost}>Final Answer</Button>
         <Button onClick={this.handleClick}>Onward!</Button>
       </div>
     );
