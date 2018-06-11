@@ -15,19 +15,23 @@ class TraitsBoxes extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            traitId: 0,
             boxChecked: false,
         };
     }
 
     handleChange = id => event => {
-        console.log(id)
-        this.setState({
-            traitId: id,
-          });
-        console.log(this.state.traitId)
-        this.props.dispatch({ type: 'POST_TRAIT', payload: {traitId: id, boxChecked: this.state.boxChecked} })
-        console.log(this.state)
+        if (this.state.boxChecked === false) {
+            this.props.dispatch({ type: 'POST_TRAIT', payload: this.props.traits })
+            this.setState({
+                boxChecked: true,
+            });
+        } else if (this.state.boxChecked === true){
+            console.log('You need to add an update to the state!')
+            this.props.dispatch({ type: 'DELETE_TRAIT', payload: this.props.traits })
+            this.setState({
+                boxChecked: false,
+            });
+        }
     };
 
     render() {
