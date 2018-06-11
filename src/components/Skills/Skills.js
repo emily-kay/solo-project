@@ -51,7 +51,7 @@ class SkillsPage extends Component {
       <div >
         <h1>Strengths and Weaknesses</h1>
         <p className="Directions">Here are some instructions! </p>
-        <h2>{this.props.state.skillReducer}</h2>
+        <h2>{this.props.state.skillReducer.allCount}</h2>
         <ul className="skillsUL">{this.state.skills.map(data => {
           return (
             <li className="skillsLI" key={data.id}>

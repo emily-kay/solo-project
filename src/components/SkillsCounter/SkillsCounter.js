@@ -7,31 +7,34 @@ import { USER_ACTIONS } from '../../redux/actions/userActions';
 const mapStateToProps = state => ({
     user: state.user,
     state,
-  });
+});
 
 class SkillsCountPage extends Component {
     constructor() {
         super();
         this.state = {
-          count: 0,
+            count: 0,
         };
-      }
+    }
 
     handleAdd = id => event => {
         if (this.state.count !== 20 && this.props.state.skillReducer !== 50 && this.props.state.skillReducer !== 0) {
-          this.setState({ 
-            count: this.state.count + 1,});
+            this.props.dispatch({ type: 'SKILL_ADDED', property: this.props.skill.toLowerCase(), payload: this.state.count + 1 })
+            this.setState({
+                count: this.state.count + 1,
+            });
         }
-        this.props.dispatch({ type: 'SKILL_ADDED' })
-      };
-    
-      handleMinus = id => event => {
+    };
+
+    handleMinus = id => event => {
+
         if (this.state.count !== 0 && this.props.state.skillReducer !== 50 && this.props.state.skillReducer !== 0) {
-          this.setState({ 
-            count: this.state.count - 1});
+            this.props.dispatch({ type: 'SKILL_MINUSED', property: this.props.skill.toLowerCase(), payload: this.state.count - 1 })
+            this.setState({
+                count: this.state.count - 1
+            });
         }
-        this.props.dispatch({ type: 'SKILL_MINUSED' })
-      };
+    };
 
     render() {
         return (
@@ -47,6 +50,6 @@ class SkillsCountPage extends Component {
             </div>
         );
     };
-}  
+}
 
 export default connect(mapStateToProps)(SkillsCountPage);
