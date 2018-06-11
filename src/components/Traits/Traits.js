@@ -4,6 +4,7 @@ import axios from 'axios';
 
 import { USER_ACTIONS } from '../../redux/actions/userActions';
 import { Button, Checkbox } from '@material-ui/core';
+import TraitsBoxes from '../TraitsBoxes/TraitsBoxes';
 
 
 const mapStateToProps = state => ({
@@ -16,7 +17,6 @@ class TraitsPage extends Component {
     super();
     this.state = {
       traits: [],
-      id: false,
     };
   }
 
@@ -40,11 +40,7 @@ class TraitsPage extends Component {
     }
   }
 
-  handleChange = id => event => {
-    this.setState({ [id]: event.target.checked });
-  };
-
-  handleClick = (event) => {
+  handleClick = (id) => (event) => {
     this.props.history.push('/skills');
   }
 
@@ -59,21 +55,15 @@ class TraitsPage extends Component {
         <ul className="traitsUL">{this.state.traits.map(data => {
           return (
             <li className="traitsLI" key={data.id}>
-              <Checkbox
-                checked={this.state.checkedBox}
-                onChange={this.handleChange()}
-                value={data.id}
-              />
-              {data.traits}
+              <TraitsBoxes id={data.id} traits={data.traits}/>
             </li>
           );
         })}
         </ul>
-        <Button onClick={this.handleClick}>Onward!</Button>
+        <Button onClick={this.handleClick()}>Onward!</Button>
       </div>
     );
   }
 }
 
-// this allows us to use <App /> in index.js
 export default connect(mapStateToProps)(TraitsPage);

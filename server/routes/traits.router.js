@@ -15,7 +15,21 @@ router.get('/', (req,res)=>{
 });
 
 router.post('/', (req, res) => {
-
+    router.post('/', (req, res) => {
+        if (req.isAuthenticated()) {
+            const queryText = `INSERT INTO "user_traits" ("person_id", "traits")
+                                VALUES ($1, $2)`;
+            pool.query(queryText, [req.user.id, req.body.trait])
+                .then(res.sendStatus(201))
+                .catch((err) => {
+                    console.log('Error on traits server POST', err);
+                    res.sendStatus(500);
+                });
+        } else {
+            res.sendStatus(403);
+        }
+    });
 });
+
 
 module.exports = router;
