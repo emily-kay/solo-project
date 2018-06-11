@@ -65,6 +65,7 @@ class SkillsPage extends Component {
         })}
         </ul>
         <Button onClick={this.handlePost}>Final Answer</Button>
+        <br />
         <Button onClick={this.handleClick}>Onward!</Button>
       </div>
     );
