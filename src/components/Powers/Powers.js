@@ -40,10 +40,6 @@ class PowersPage extends Component {
     }
   }
 
-  handleChange = id => event => {
-    this.setState({ [id]: event.target.checked });
-  };
-
   handleClick = (event) => {
     this.props.history.push('/gadgets');
   }

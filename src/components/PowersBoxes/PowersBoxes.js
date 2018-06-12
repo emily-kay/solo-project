@@ -21,12 +21,12 @@ class PowersBoxes extends Component {
 
     handleChange = id => event => {
         if (this.state.boxChecked === false) {
-            this.props.dispatch({ type: 'POST_POWER', payload: this.props.powers, property: this.props.id })
+            this.props.dispatch({ type: 'POST_POWER', payload: this.props.power, property: this.props.id })
             this.setState({
                 boxChecked: true,
             });
         } else if (this.state.boxChecked === true) {
-            this.props.dispatch({ type: 'DELETE_POWER', payload: this.props.powers, property: this.props.id })
+            this.props.dispatch({ type: 'DELETE_POWER', payload: this.props.power, property: this.props.id })
             this.setState({
                 boxChecked: false,
             });

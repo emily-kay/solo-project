@@ -18,6 +18,7 @@ router.post('/', (req, res) => {
     if (req.isAuthenticated()) {
         const queryText = `INSERT INTO "user_powers" ("person_id", "powers")
                             VALUES ($1, $2)`;
+
         pool.query(queryText, [req.user.id, req.body.power])
             .then(res.sendStatus(201))
             .catch((err) => {
