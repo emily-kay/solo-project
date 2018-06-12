@@ -9,7 +9,20 @@ const mapStateToProps = state => ({
   user: state.user,
 });
 
-class InfoPage extends Component {
+class OriginPage extends Component {
+
+  constructor() {
+    super();
+    this.state = {
+      base: {
+        homeTown: '',
+        values: '',
+        goals: '',
+        backstory: '',
+      },
+    }
+  }
+
   componentDidMount() {
     this.props.dispatch({ type: USER_ACTIONS.FETCH_USER });
   }
@@ -20,22 +33,37 @@ class InfoPage extends Component {
     }
   }
 
-  handleChange = (event) => {
+  handleClick = (event) => {
+    event.preventDefault();
+    const action = { type: 'ADD_BASE', payload: this.state.base }
+    this.props.dispatch(action);
     this.props.history.push('/traits');
   }
+
+  handleFormChange = (event) => {
+    this.setState({
+      base: {
+        ...this.state.base,
+        [event.target.name]: event.target.value,
+      }
+    });
+  };
 
   render() {
     return (
       <div >
         <h1>Origin Story</h1>
         <div className="OriginField">
-          <TextField label="Origin"/>
+          Home Town <TextField onChange={this.handleFormChange} name="homeTown"/>
+          Personal Values <TextField onChange={this.handleFormChange} name="values"/>
+          Goals, Hopes, Dreams <TextField onChange={this.handleFormChange} name="goals"/>
+          Backstory <TextField onChange={this.handleFormChange} name="backstory"/>
         </div>
-        <Button onClick={this.handleChange}>Onward!</Button>
+        <Button onClick={this.handleClick}>Onward!</Button>
       </div>
     );
   }
 }
 
 // this allows us to use <App /> in index.js
-export default connect(mapStateToProps)(InfoPage);
+export default connect(mapStateToProps)(OriginPage);

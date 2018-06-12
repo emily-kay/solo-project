@@ -2,14 +2,26 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import { USER_ACTIONS } from '../../redux/actions/userActions';
-import { Button, Input } from '@material-ui/core';
+import { Button, TextField } from '@material-ui/core';
 
 
 const mapStateToProps = state => ({
   user: state.user,
 });
 
-class InfoPage extends Component {
+class AboutPage extends Component {
+
+  constructor() {
+    super();
+    this.state = {
+      base: {
+        firstName: '',
+        lastName: '',
+        superName: '',
+      },
+    }
+  }
+
   componentDidMount() {
     this.props.dispatch({ type: USER_ACTIONS.FETCH_USER });
   }
@@ -20,34 +32,39 @@ class InfoPage extends Component {
     }
   }
 
-  handleChange = (event) => {
+  handleClick = (event) => {
+    event.preventDefault();
+    const action = { type: 'ADD_BASE', payload: this.state.base }
+    this.props.dispatch(action);
     this.props.history.push('/origin');
   }
+
+  handleFormChange = (event) => {
+    this.setState({
+      base: {
+        ...this.state.base,
+        [event.target.name]: event.target.value,
+      }
+    });
+  };
 
   render() {
     return (
       <div >
         <h1>About Your Character</h1>
         <div className="AboutList">
-          First Name <Input />
+          <TextField label="First Name" onChange={this.handleFormChange} name="firstName" />
           <br />
-          Last Name <Input />
+          <TextField label="Last Name" onChange={this.handleFormChange} name="lastName" />
           <br />
-          Age <Input />
+          <TextField label="Superhero Name" onChange={this.handleFormChange} name="superName" />
           <br />
-          Hair Color <Input />
-          <br />
-          Eye Color <Input />
-          <br />
-          Size <Input />
-          <br />
-          Place of Origin <Input />
         </div>
-        <Button onClick={this.handleChange}>Onward</Button>
+        <Button onClick={this.handleClick}>Onward</Button>
       </div>
     );
   }
 }
 
 // this allows us to use <App /> in index.js
-export default connect(mapStateToProps)(InfoPage);
+export default connect(mapStateToProps)(AboutPage);

@@ -9,6 +9,7 @@ import {
 import './styles/main.css';
 
 import AboutCharacter from './components/AboutCharacter/AboutCharacter';
+import Congrats from './components/Congrats/Congrats';
 import Gadgets from './components/Gadgets/Gadgets';
 import Header from './components/Header/Header';
 import Home from './components/Home/Home';
@@ -34,6 +35,10 @@ const App = () => (
         <Route
           path="/about"
           component={AboutCharacter}
+        />
+        <Route
+          path="/congrats"
+          component={Congrats}
         />
         <Route
           path="/gadgets"
