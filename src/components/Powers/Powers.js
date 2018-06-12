@@ -4,6 +4,7 @@ import axios from 'axios';
 
 import { USER_ACTIONS } from '../../redux/actions/userActions';
 import { Button, Checkbox } from '@material-ui/core';
+import PowersBoxes from '../PowersBoxes/PowersBoxes';
 
 
 const mapStateToProps = state => ({
@@ -16,7 +17,6 @@ class PowersPage extends Component {
     super();
     this.state = {
       powers: [],
-      id: false,
     };
   }
 
@@ -56,12 +56,7 @@ class PowersPage extends Component {
         <ul className="powersUL">{this.state.powers.map(data => {
           return (
             <li className="powersLI" key={data.id}>
-              <Checkbox
-                checked={this.state.checkedBox}
-                onChange={this.handleChange()}
-                value={data.id}
-              />
-              {data.power}
+             <PowersBoxes id={data.id} power={data.power} />
             </li>
           );
         })}
