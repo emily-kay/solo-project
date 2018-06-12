@@ -36,7 +36,7 @@ class OtherCharactersPage extends Component {
     event.preventDefault();
     const action = { type: 'ADD_BASE', payload: this.state.base }
     this.props.dispatch(action);
-    this.props.history.push('/finale');
+    this.props.history.push('/congrats');
   }
 
   handleFormChange = (event) => {
