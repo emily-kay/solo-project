@@ -29,7 +29,10 @@ class InfoPage extends Component {
       <div >
         <h1>Origin Story</h1>
         <div className="OriginField">
-          <TextField label="Origin"/>
+          Home Town <TextField />
+          Personal Values <TextField />
+          Goals, Hopes, Dreams <TextField />
+          Backstory <TextField /> 
         </div>
         <Button onClick={this.handleChange}>Onward!</Button>
       </div>
