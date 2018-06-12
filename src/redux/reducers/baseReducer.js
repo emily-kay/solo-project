@@ -19,7 +19,7 @@ const baseList = {
 
 const baseReducer = (state = baseList, action) => {
     if (action.type === 'ADD_BASE'){
-        return {...state, [action.property]: action.payload};
+        return {...state, ...action.payload};
     }
     return state;
 }
