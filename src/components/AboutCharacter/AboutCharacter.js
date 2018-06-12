@@ -10,7 +10,7 @@ const mapStateToProps = state => ({
 });
 
 class InfoPage extends Component {
-  
+
   constructor() {
     super();
     this.state = {
@@ -34,13 +34,13 @@ class InfoPage extends Component {
 
   handleClick = (event) => {
     event.preventDefault();
-    const action = {type: 'ADD_BASE', payload: this.state.base}
+    const action = { type: 'ADD_BASE', payload: this.state.base }
     this.props.dispatch(action);
     this.props.history.push('/origin');
   }
 
   handleFormChange = (event) => {
-    this.setState ({
+    this.setState({
       base: {
         ...this.state.base,
         [event.target.name]: event.target.value,
@@ -53,11 +53,11 @@ class InfoPage extends Component {
       <div >
         <h1>About Your Character</h1>
         <div className="AboutList">
-          <TextField label="First Name" onChange={this.handleFormChange} name="firstName"/>
+          <TextField label="First Name" onChange={this.handleFormChange} name="firstName" />
           <br />
-          <TextField label="Last Name" onChange={this.handleFormChange} name="lastName"/>
+          <TextField label="Last Name" onChange={this.handleFormChange} name="lastName" />
           <br />
-          <TextField label="Superhero Name" onChange={this.handleFormChange} name="superName"/>
+          <TextField label="Superhero Name" onChange={this.handleFormChange} name="superName" />
           <br />
         </div>
         <Button onClick={this.handleClick}>Onward</Button>
