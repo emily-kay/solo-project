@@ -9,7 +9,7 @@ const mapStateToProps = state => ({
   user: state.user,
 });
 
-class InfoPage extends Component {
+class CongratsPage extends Component {
   componentDidMount() {
     this.props.dispatch({type: USER_ACTIONS.FETCH_USER});
   }
@@ -21,6 +21,9 @@ class InfoPage extends Component {
   }
 
   handleClick = (event) => {
+    event.preventDefault();
+    const action = { type: 'POST_BASE' }
+    this.props.dispatch(action);
     this.props.history.push('/finale');
   }
 
@@ -34,4 +37,4 @@ class InfoPage extends Component {
 }
 
 // this allows us to use <App /> in index.js
-export default connect(mapStateToProps)(InfoPage);
+export default connect(mapStateToProps)(CongratsPage);
