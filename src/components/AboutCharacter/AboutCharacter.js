@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import { USER_ACTIONS } from '../../redux/actions/userActions';
-import { Button, Input } from '@material-ui/core';
+import { Button, TextField } from '@material-ui/core';
 
 
 const mapStateToProps = state => ({
@@ -29,19 +29,12 @@ class InfoPage extends Component {
       <div >
         <h1>About Your Character</h1>
         <div className="AboutList">
-          First Name <Input />
+          <TextField label="First Name"/>
           <br />
-          Last Name <Input />
+          <TextField label="Last Name"/>
           <br />
-          Age <Input />
+          <TextField label="Superhero Name"/>
           <br />
-          Hair Color <Input />
-          <br />
-          Eye Color <Input />
-          <br />
-          Size <Input />
-          <br />
-          Place of Origin <Input />
         </div>
         <Button onClick={this.handleChange}>Onward</Button>
       </div>
