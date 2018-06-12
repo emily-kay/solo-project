@@ -9,7 +9,19 @@ const mapStateToProps = state => ({
   user: state.user,
 });
 
-class InfoPage extends Component {
+class GadgetsPage extends Component {
+  
+  constructor() {
+    super();
+    this.state = {
+      base: {
+        weapons: '',
+        vehicles: '',
+        lairs: '',
+      },
+    }
+  }
+
   componentDidMount() {
     this.props.dispatch({type: USER_ACTIONS.FETCH_USER});
   }
@@ -20,26 +32,38 @@ class InfoPage extends Component {
     }
   }
 
-  handleChange = (event) => {
+  handleClick = (event) => {
+    event.preventDefault();
+    const action = { type: 'ADD_BASE', payload: this.state.base }
+    this.props.dispatch(action);
     this.props.history.push('/otherCharacters');
   }
+
+  handleFormChange = (event) => {
+    this.setState({
+      base: {
+        ...this.state.base,
+        [event.target.name]: event.target.value,
+      }
+    });
+  };
 
   render() {
     return (
       <div >
         <h1>Gadgets</h1>
         <div className="TextList">
-          <TextField label="Weapons"/>
+          <TextField label="Weapons" onChange={this.handleFormChange} name="weapons"/>
           <br />
-          <TextField label="Vehicles"/>
+          <TextField label="Vehicles" onChange={this.handleFormChange} name="vehicles"/>
           <br />
-          <TextField label="Lairs"/>
+          <TextField label="Lairs" onChange={this.handleFormChange} name="lairs"/>
         </div>
-        <Button onClick={this.handleChange}>Onward!</Button>
+        <Button onClick={this.handleClick}>Onward!</Button>
       </div>
     );
   }
 }
 
 // this allows us to use <App /> in index.js
-export default connect(mapStateToProps)(InfoPage);
+export default connect(mapStateToProps)(GadgetsPage);
