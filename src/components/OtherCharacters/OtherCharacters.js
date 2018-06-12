@@ -9,7 +9,19 @@ const mapStateToProps = state => ({
   user: state.user,
 });
 
-class InfoPage extends Component {
+class OtherCharactersPage extends Component {
+
+  constructor() {
+    super();
+    this.state = {
+      base: {
+        teammates: '',
+        loves: '',
+        enemies: '',
+      },
+    }
+  }
+
   componentDidMount() {
     this.props.dispatch({type: USER_ACTIONS.FETCH_USER});
   }
@@ -20,26 +32,37 @@ class InfoPage extends Component {
     }
   }
 
-  handleChange = (event) => {
+  handleClick = (event) => {
+    event.preventDefault();
+    const action = { type: 'ADD_BASE', payload: this.state.base }
+    this.props.dispatch(action);
     this.props.history.push('/finale');
   }
+
+  handleFormChange = (event) => {
+    this.setState({
+      base: {
+        ...this.state.base,
+        [event.target.name]: event.target.value,
+      }
+    });
+  };
 
   render() {
     return (
       <div >
         <h1>Other Characters</h1>
         <div className="TextList">
-          <TextField label="Teammates"/>
+          <TextField label="Teammates" onChange={this.handleFormChange} name="teammates" />
           <br />
-          <TextField label="Love Interests"/>
+          <TextField label="Love Interests" onChange={this.handleFormChange} name="loves" />
           <br />
-          <TextField label="Enemies"/>
+          <TextField label="Enemies" onChange={this.handleFormChange} name="enemies" />
         </div>
-        <Button onClick={this.handleChange}>Onward!</Button>
+        <Button onClick={this.handleClick}>Onward!</Button>
       </div>
     );
   }
 }
 
-// this allows us to use <App /> in index.js
-export default connect(mapStateToProps)(InfoPage);
+export default connect(mapStateToProps)(OtherCharactersPage);
