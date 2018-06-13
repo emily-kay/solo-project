@@ -44,11 +44,6 @@ class AboutPanelPage extends Component {
         }
     }
 
-    handleUpdate = (event) => {
-        //update
-        console.log('OY OVER HERE',this.state)
-    }
-
     render() {
         return (
             <ExpansionPanel>

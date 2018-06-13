@@ -22,7 +22,7 @@ router.get('/about', (req, res) => {
 
 router.get('/origin', (req, res) => {
     if (req.isAuthenticated()) {
-        const queryText = `SELECT ("home_town", "values", "goals", "backstory")
+        const queryText = `SELECT "home_town", "values", "goals", "backstory"
                             FROM "base"
                             WHERE "person_id" = $1;`;
         pool.query(queryText, [req.user.id])
@@ -40,7 +40,7 @@ router.get('/origin', (req, res) => {
 
 router.get('/traits', (req, res) => {
     if (req.isAuthenticated()) {
-        const queryText = `SELECT ("traits")
+        const queryText = `SELECT "traits"
                             FROM "user_traits"
                             WHERE "person_id" = $1;`;
         pool.query(queryText, [req.user.id])
@@ -58,7 +58,7 @@ router.get('/traits', (req, res) => {
 
 router.get('/skills', (req, res) => {
     if (req.isAuthenticated()) {
-        const queryText = `SELECT ("skills")
+        const queryText = `SELECT "skills"
                             FROM "user_skills"
                             WHERE "person_id" = $1;`;
         pool.query(queryText, [req.user.id])
@@ -76,7 +76,7 @@ router.get('/skills', (req, res) => {
 
 router.get('/powers', (req, res) => {
     if (req.isAuthenticated()) {
-        const queryText = `SELECT ("powers")
+        const queryText = `SELECT "powers"
                             FROM "user_powers"
                             WHERE "person_id" = $1;`;
         pool.query(queryText, [req.user.id])
@@ -94,7 +94,7 @@ router.get('/powers', (req, res) => {
 
 router.get('/gadgets', (req, res) => {
     if (req.isAuthenticated()) {
-        const queryText = `SELECT ("weapons", "vehicles", "lairs")
+        const queryText = `SELECT "weapons", "vehicles", "lairs"
                             FROM "base"
                             WHERE "person_id" = $1;`;
         pool.query(queryText, [req.user.id])
@@ -112,7 +112,7 @@ router.get('/gadgets', (req, res) => {
 
 router.get('/otherCharacters', (req, res) => {
     if (req.isAuthenticated()) {
-        const queryText = `SELECT ("teammates", "loves", "enemies")
+        const queryText = `SELECT "teammates", "loves", "enemies"
                             FROM "base"
                             WHERE "person_id" = $1;`;
         pool.query(queryText, [req.user.id])
