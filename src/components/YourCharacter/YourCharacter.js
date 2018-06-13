@@ -2,16 +2,16 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import { USER_ACTIONS } from '../../redux/actions/userActions';
-import Button from '@material-ui/core/Button';
+import { Button, ExpansionPanel, ExpansionPanelSummary, ExpansionPanelDetails } from '@material-ui/core';
 
 
 const mapStateToProps = state => ({
   user: state.user,
 });
 
-class InfoPage extends Component {
+class YourCharacterPage extends Component {
   componentDidMount() {
-    this.props.dispatch({type: USER_ACTIONS.FETCH_USER});
+    this.props.dispatch({ type: USER_ACTIONS.FETCH_USER });
   }
 
   componentDidUpdate() {
@@ -32,6 +32,14 @@ class InfoPage extends Component {
     return (
       <div >
         <h1>Your Character</h1>
+        <ExpansionPanel>
+          <ExpansionPanelSummary >
+            About
+          </ExpansionPanelSummary>
+          <ExpansionPanelDetails>
+            This is some stuff
+          </ExpansionPanelDetails>
+        </ExpansionPanel>
         <Button onClick={this.handleUpdate}>Update!</Button>
         <Button onClick={this.handleDelete}>Delete!</Button>
       </div>
@@ -40,4 +48,4 @@ class InfoPage extends Component {
 }
 
 // this allows us to use <App /> in index.js
-export default connect(mapStateToProps)(InfoPage);
+export default connect(mapStateToProps)(YourCharacterPage);
