@@ -26,7 +26,7 @@ class LoginPage extends Component {
   
   componentWillReceiveProps(nextProps) {
     if (nextProps.user.userName) {
-      this.props.history.push('/finale');
+      this.props.history.push('/about');
     }
   }
 
@@ -37,6 +37,7 @@ class LoginPage extends Component {
       this.props.dispatch(formError());
     } else {
       this.props.dispatch(triggerLogin(this.state.username, this.state.password));
+
     }
   }
 
