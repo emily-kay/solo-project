@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import axios from 'axios';
 
 import { USER_ACTIONS } from '../../redux/actions/userActions';
-import { Button, ExpansionPanel, ExpansionPanelSummary, ExpansionPanelDetails } from '@material-ui/core';
+import { Button, ExpansionPanel, ExpansionPanelSummary, ExpansionPanelDetails, Typography } from '@material-ui/core';
 
 
 const mapStateToProps = state => ({
@@ -10,8 +11,31 @@ const mapStateToProps = state => ({
 });
 
 class OriginPanelPage extends Component {
+
+    constructor() {
+        super();
+        this.state = {
+            about: {
+                home_town: '',
+                values: '',
+                goals: '',
+                backstory: '',
+            }
+        };
+    }
+
     componentDidMount() {
         this.props.dispatch({ type: USER_ACTIONS.FETCH_USER });
+        axios({
+            method: 'GET',
+            url: '/api/finale/origin'
+        }).then((response) => {
+            this.setState({
+                about: response.data[0]
+            });
+        }).catch((error) => {
+            console.log('Error on the powers componentDidMount:', error);
+        });
     }
 
     componentDidUpdate() {
@@ -20,19 +44,22 @@ class OriginPanelPage extends Component {
         }
     }
 
-    handleUpdate = (event) => {
-        //update
-    }
-
     render() {
         return (
             <ExpansionPanel>
                 <ExpansionPanelSummary >
-                    About
+                    Origin Story
           </ExpansionPanelSummary>
                 <ExpansionPanelDetails>
-                    This is some stuff
-            <Button onClick={this.handleUpdate}>Update!</Button>
+                    <Typography>
+                        Home Town - {this.state.about.home_town}
+                        <br />
+                        Personal Values - {this.state.about.values}
+                        <br />
+                        Goals, Hopes, Dreams - {this.state.about.goals}
+                        <br />
+                        Backstory - {this.state.about.backstory}
+                    </Typography>
                 </ExpansionPanelDetails>
             </ExpansionPanel>
         );

@@ -29,7 +29,6 @@ class AboutPanelPage extends Component {
             method: 'GET',
             url: '/api/finale/about'
         }).then((response) => {
-            console.log('DUDE HERE', response.data)
             this.setState({
                 about: response.data[0]
             });
