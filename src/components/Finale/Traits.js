@@ -25,7 +25,6 @@ class TraitsPanelPage extends Component {
             method: 'GET',
             url: '/api/finale/traits'
         }).then((response) => {
-            console.log('AY THIS', response.data)
             this.setState({
                 traits: response.data
             });
@@ -45,14 +44,14 @@ class TraitsPanelPage extends Component {
             <ExpansionPanel>
                 <ExpansionPanelSummary >
                     Personality Traits
-          </ExpansionPanelSummary>
+                </ExpansionPanelSummary>
                 <ExpansionPanelDetails>
                     Your character is
-                {this.state.traits.map(data => {
-                    return (
-                        <p id='finaleArrays'>{data.traits}</p>
-                    );
-                })}
+                    {this.state.traits.map(data => {
+                        return (
+                            <p id='finaleArrays'>{data.traits}</p>
+                        );
+                    })}
                 </ExpansionPanelDetails>
             </ExpansionPanel>
         );

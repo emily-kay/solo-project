@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import axios from 'axios';
 
 import { USER_ACTIONS } from '../../redux/actions/userActions';
 import { Button, ExpansionPanel, ExpansionPanelSummary, ExpansionPanelDetails } from '@material-ui/core';
@@ -10,8 +11,26 @@ const mapStateToProps = state => ({
 });
 
 class SkillsPanelPage extends Component {
+
+    constructor() {
+        super();
+        this.state = {
+            skills: [],
+        };
+    }
+
     componentDidMount() {
         this.props.dispatch({ type: USER_ACTIONS.FETCH_USER });
+        axios({
+            method: 'GET',
+            url: '/api/finale/skills'
+        }).then((response) => {
+            this.setState({
+                skills: response.data
+            });
+        }).catch((error) => {
+            console.log('Error on the powers componentDidMount:', error);
+        });
     }
 
     componentDidUpdate() {
@@ -20,24 +39,23 @@ class SkillsPanelPage extends Component {
         }
     }
 
-    handleUpdate = (event) => {
-        //update
-    }
-
     render() {
         return (
             <ExpansionPanel>
                 <ExpansionPanelSummary >
-                    About
-          </ExpansionPanelSummary>
+                    Strengths and Weaknesses
+                </ExpansionPanelSummary>
                 <ExpansionPanelDetails>
-                    This is some stuff
-            <Button onClick={this.handleUpdate}>Update!</Button>
+                    Your character is
+                    {this.state.skills.map(data => {
+                        return (
+                            <p id='finaleArrays'>{data.skills}-{data.count}</p>
+                        );
+                    })}
                 </ExpansionPanelDetails>
             </ExpansionPanel>
         );
     }
 }
-
 
 export default connect(mapStateToProps)(SkillsPanelPage);

@@ -58,7 +58,7 @@ router.get('/traits', (req, res) => {
 
 router.get('/skills', (req, res) => {
     if (req.isAuthenticated()) {
-        const queryText = `SELECT "skills"
+        const queryText = `SELECT "skills", "count"
                             FROM "user_skills"
                             WHERE "person_id" = $1;`;
         pool.query(queryText, [req.user.id])
