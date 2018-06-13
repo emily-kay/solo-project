@@ -41,6 +41,10 @@ button {
     margin: 1% 24%; 
 }
 
+#finaleArrays {
+    padding: 25px;
+}
+
 form {
     background-color: #dbd5d5;
     width: 30%;
@@ -125,6 +129,10 @@ li a:hover {
 
 .OriginField {
     margin: 5% 42% 5%;
+}
+
+.Panels {
+    width: 100%;
 }
 
 .powersLI {
