@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import axios from 'axios';
 
 import { USER_ACTIONS } from '../../redux/actions/userActions';
-import { Button, ExpansionPanel, ExpansionPanelSummary, ExpansionPanelDetails } from '@material-ui/core';
+import { Button, ExpansionPanel, ExpansionPanelSummary, ExpansionPanelDetails, Typography } from '@material-ui/core';
 
 
 const mapStateToProps = state => ({
@@ -10,8 +11,26 @@ const mapStateToProps = state => ({
 });
 
 class PowersPanelPage extends Component {
+    
+    constructor() {
+        super();
+        this.state = {
+            powers: [],
+        };
+    }
+
     componentDidMount() {
         this.props.dispatch({ type: USER_ACTIONS.FETCH_USER });
+        axios({
+            method: 'GET',
+            url: '/api/finale/powers'
+        }).then((response) => {
+            this.setState({
+                powers: response.data
+            });
+        }).catch((error) => {
+            console.log('Error on the powers componentDidMount:', error);
+        });
     }
 
     componentDidUpdate() {
@@ -20,19 +39,21 @@ class PowersPanelPage extends Component {
         }
     }
 
-    handleUpdate = (event) => {
-        //update
-    }
-
     render() {
         return (
             <ExpansionPanel>
                 <ExpansionPanelSummary >
-                    About
-          </ExpansionPanelSummary>
+                    Powers
+                </ExpansionPanelSummary>
                 <ExpansionPanelDetails>
-                    This is some stuff
-            <Button onClick={this.handleUpdate}>Update!</Button>
+                    <Typography>
+                    Your character's powers are
+                    {this.state.powers.map(data => {
+                        return (
+                            <p id='finaleArrays'>{data.powers}</p>
+                        );
+                    })}
+                    </Typography>
                 </ExpansionPanelDetails>
             </ExpansionPanel>
         );

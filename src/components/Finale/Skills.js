@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import axios from 'axios';
 
 import { USER_ACTIONS } from '../../redux/actions/userActions';
-import { Button, ExpansionPanel, ExpansionPanelSummary, ExpansionPanelDetails } from '@material-ui/core';
+import { Button, ExpansionPanel, ExpansionPanelSummary, ExpansionPanelDetails, Typography } from '@material-ui/core';
 
 
 const mapStateToProps = state => ({
@@ -46,12 +46,14 @@ class SkillsPanelPage extends Component {
                     Strengths and Weaknesses
                 </ExpansionPanelSummary>
                 <ExpansionPanelDetails>
+                    <Typography>
                     Your character is
                     {this.state.skills.map(data => {
                         return (
                             <p id='finaleArrays'>{data.skills}-{data.count}</p>
                         );
                     })}
+                    </Typography>
                 </ExpansionPanelDetails>
             </ExpansionPanel>
         );

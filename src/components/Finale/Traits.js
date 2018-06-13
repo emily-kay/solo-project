@@ -46,12 +46,14 @@ class TraitsPanelPage extends Component {
                     Personality Traits
                 </ExpansionPanelSummary>
                 <ExpansionPanelDetails>
+                    <Typography>
                     Your character is
                     {this.state.traits.map(data => {
                         return (
                             <p id='finaleArrays'>{data.traits}</p>
                         );
                     })}
+                    </Typography>
                 </ExpansionPanelDetails>
             </ExpansionPanel>
         );
