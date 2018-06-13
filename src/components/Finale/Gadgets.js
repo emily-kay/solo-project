@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import axios from 'axios';
 
 import { USER_ACTIONS } from '../../redux/actions/userActions';
-import { Button, ExpansionPanel, ExpansionPanelSummary, ExpansionPanelDetails } from '@material-ui/core';
+import { Button, ExpansionPanel, ExpansionPanelSummary, ExpansionPanelDetails, Typography } from '@material-ui/core';
 
 
 const mapStateToProps = state => ({
@@ -10,8 +11,30 @@ const mapStateToProps = state => ({
 });
 
 class GadgetsPanelPage extends Component {
+
+    constructor() {
+        super();
+        this.state = {
+            gadgets: {
+                weapons: '',
+                vehicles: '',
+                lairs: '',
+            }
+        };
+    }
+
     componentDidMount() {
         this.props.dispatch({ type: USER_ACTIONS.FETCH_USER });
+        axios({
+            method: 'GET',
+            url: '/api/finale/gadgets'
+        }).then((response) => {
+            this.setState({
+                gadgets: response.data[0]
+            });
+        }).catch((error) => {
+            console.log('Error on the powers componentDidMount:', error);
+        });
     }
 
     componentDidUpdate() {
@@ -20,19 +43,20 @@ class GadgetsPanelPage extends Component {
         }
     }
 
-    handleUpdate = (event) => {
-        //update
-    }
-
     render() {
         return (
             <ExpansionPanel>
                 <ExpansionPanelSummary >
-                    About
-          </ExpansionPanelSummary>
-                <ExpansionPanelDetails>
-                    This is some stuff
-            <Button onClick={this.handleUpdate}>Update!</Button>
+                    Gadgets
+                </ExpansionPanelSummary>
+                <ExpansionPanelDetails className="Panels">
+                    <Typography>
+                    Weapons - {this.state.gadgets.weapons} 
+                    <br/>
+                    Vehicles - {this.state.gadgets.vehicles}
+                    <br/>
+                    Lairs - {this.state.gadgets.lairs}
+                    </Typography>
                 </ExpansionPanelDetails>
             </ExpansionPanel>
         );
