@@ -3,6 +3,13 @@ import { connect } from 'react-redux';
 
 import { USER_ACTIONS } from '../../redux/actions/userActions';
 import { Button, ExpansionPanel, ExpansionPanelSummary, ExpansionPanelDetails } from '@material-ui/core';
+import About from '../Finale/About';
+import Origin from '../Finale/Origin';
+import Traits from '../Finale/Traits';
+import Skills from '../Finale/Skills';
+import Powers from '../Finale/Powers';
+import Gadgets from '../Finale/Gadgets';
+import OtherCharacters from '../Finale/OtherCharacters';
 
 
 const mapStateToProps = state => ({
@@ -32,15 +39,13 @@ class YourCharacterPage extends Component {
     return (
       <div >
         <h1>Your Character</h1>
-        <ExpansionPanel>
-          <ExpansionPanelSummary >
-            About
-          </ExpansionPanelSummary>
-          <ExpansionPanelDetails>
-            This is some stuff
-          </ExpansionPanelDetails>
-        </ExpansionPanel>
-        <Button onClick={this.handleUpdate}>Update!</Button>
+        <About />
+        <Origin />
+        <Traits />
+        <Skills />
+        <Powers />
+        <Gadgets />
+        <OtherCharacters />
         <Button onClick={this.handleDelete}>Delete!</Button>
       </div>
     );
