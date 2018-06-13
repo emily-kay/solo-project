@@ -16,6 +16,8 @@ class OriginPanelPage extends Component {
         super();
         this.state = {
             about: {
+                first_name: '',
+                last_name: '',
                 home_town: '',
                 values: '',
                 goals: '',
@@ -52,6 +54,10 @@ class OriginPanelPage extends Component {
           </ExpansionPanelSummary>
                 <ExpansionPanelDetails>
                     <Typography>
+                        First Name - {this.state.about.first_name}
+                        <br />
+                        Last Name - {this.state.about.last_name}
+                        <br />
                         Home Town - {this.state.about.home_town}
                         <br />
                         Personal Values - {this.state.about.values}

@@ -22,7 +22,7 @@ router.get('/about', (req, res) => {
 
 router.get('/origin', (req, res) => {
     if (req.isAuthenticated()) {
-        const queryText = `SELECT "home_town", "values", "goals", "backstory"
+        const queryText = `SELECT "first_name", "last_name", "home_town", "values", "goals", "backstory"
                             FROM "base"
                             WHERE "person_id" = $1;`;
         pool.query(queryText, [req.user.id])

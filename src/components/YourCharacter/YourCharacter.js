@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import { USER_ACTIONS } from '../../redux/actions/userActions';
-import { Button, ExpansionPanel, ExpansionPanelSummary, ExpansionPanelDetails } from '@material-ui/core';
-import About from '../Finale/About';
+import { Button } from '@material-ui/core';
 import Origin from '../Finale/Origin';
 import Traits from '../Finale/Traits';
 import Skills from '../Finale/Skills';
@@ -39,7 +38,6 @@ class YourCharacterPage extends Component {
     return (
       <div >
         <h1>Your Character</h1>
-        <About />
         <Origin />
         <Traits />
         <Skills />
