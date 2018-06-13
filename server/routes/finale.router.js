@@ -4,7 +4,7 @@ const router = express.Router();
 
 router.get('/about', (req, res) => {
     if (req.isAuthenticated()) {
-        const queryText = `SELECT ("first_name", "last_name", "super_name")
+        const queryText = `SELECT "first_name", "last_name", "super_name"
                             FROM "base"
                             WHERE "person_id" = $1;`;
         pool.query(queryText, [req.user.id])

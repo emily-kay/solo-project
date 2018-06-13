@@ -127,6 +127,10 @@ li a:hover {
     margin: 5% 42% 5%;
 }
 
+.Panels {
+    width: 100%;
+}
+
 .powersLI {
     padding: 0% 3.25%;
     width: 239px;
