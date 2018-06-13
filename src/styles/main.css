@@ -41,6 +41,10 @@ button {
     margin: 1% 24%; 
 }
 
+#finaleArrays {
+    padding: 25px;
+}
+
 form {
     background-color: #dbd5d5;
     width: 30%;

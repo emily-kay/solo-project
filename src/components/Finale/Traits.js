@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import axios from 'axios';
 
 import { USER_ACTIONS } from '../../redux/actions/userActions';
-import { Button, ExpansionPanel, ExpansionPanelSummary, ExpansionPanelDetails } from '@material-ui/core';
+import { Button, ExpansionPanel, ExpansionPanelSummary, ExpansionPanelDetails, Typography } from '@material-ui/core';
 
 
 const mapStateToProps = state => ({
@@ -10,8 +11,27 @@ const mapStateToProps = state => ({
 });
 
 class TraitsPanelPage extends Component {
+
+    constructor() {
+        super();
+        this.state = {
+            traits: [],
+        };
+    }
+
     componentDidMount() {
         this.props.dispatch({ type: USER_ACTIONS.FETCH_USER });
+        axios({
+            method: 'GET',
+            url: '/api/finale/traits'
+        }).then((response) => {
+            console.log('AY THIS', response.data)
+            this.setState({
+                traits: response.data
+            });
+        }).catch((error) => {
+            console.log('Error on the powers componentDidMount:', error);
+        });
     }
 
     componentDidUpdate() {
@@ -20,19 +40,19 @@ class TraitsPanelPage extends Component {
         }
     }
 
-    handleUpdate = (event) => {
-        //update
-    }
-
     render() {
         return (
             <ExpansionPanel>
                 <ExpansionPanelSummary >
-                    About
+                    Personality Traits
           </ExpansionPanelSummary>
                 <ExpansionPanelDetails>
-                    This is some stuff
-            <Button onClick={this.handleUpdate}>Update!</Button>
+                    Your character is
+                {this.state.traits.map(data => {
+                    return (
+                        <p id='finaleArrays'>{data.traits}</p>
+                    );
+                })}
                 </ExpansionPanelDetails>
             </ExpansionPanel>
         );
