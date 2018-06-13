@@ -51,7 +51,7 @@ class OriginPanelPage extends Component {
             <ExpansionPanel>
                 <ExpansionPanelSummary >
                     Origin Story
-          </ExpansionPanelSummary>
+                </ExpansionPanelSummary>
                 <ExpansionPanelDetails>
                     <Typography>
                         First Name - {this.state.about.first_name}

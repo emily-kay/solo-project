@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import axios from 'axios';
 
 import { USER_ACTIONS } from '../../redux/actions/userActions';
 import { Button } from '@material-ui/core';
@@ -16,9 +17,29 @@ const mapStateToProps = state => ({
 });
 
 class YourCharacterPage extends Component {
+
+  constructor() {
+    super();
+    this.state = {
+        super: {
+          super_name: '',
+        }
+    };
+}
+  
   componentDidMount() {
     this.props.dispatch({ type: USER_ACTIONS.FETCH_USER });
-  }
+    axios({
+        method: 'GET',
+        url: '/api/finale/supername'
+    }).then((response) => {
+        this.setState({
+          super: response.data[0]
+        });
+    }).catch((error) => {
+        console.log('Error on the powers componentDidMount:', error);
+    });
+}
 
   componentDidUpdate() {
     if (!this.props.user.isLoading && this.props.user.userName === null) {
@@ -38,6 +59,7 @@ class YourCharacterPage extends Component {
     return (
       <div >
         <h1>Your Character</h1>
+        {this.state.super.super_name}
         <Origin />
         <Traits />
         <Skills />

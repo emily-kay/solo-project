@@ -2,9 +2,9 @@ const express = require('express');
 const pool = require('../modules/pool');
 const router = express.Router();
 
-router.get('/about', (req, res) => {
+router.get('/supername', (req, res) => {
     if (req.isAuthenticated()) {
-        const queryText = `SELECT "first_name", "last_name", "super_name"
+        const queryText = `SELECT "super_name"
                             FROM "base"
                             WHERE "person_id" = $1;`;
         pool.query(queryText, [req.user.id])
