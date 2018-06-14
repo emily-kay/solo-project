@@ -49,7 +49,7 @@ class PowersPage extends Component {
       <div >
         <h1>Powers</h1>
         <p className="Directions">Time to make your hero super! </p>
-        <ul className="powersUL">{this.state.powers.map(data => {
+        <ul className="PowersUL">{this.state.powers.map(data => {
           return (
             <li className="powersLI" key={data.id}>
              <PowersBoxes id={data.id} power={data.power} />

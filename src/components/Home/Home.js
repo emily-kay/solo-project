@@ -26,10 +26,8 @@ class HomePage extends Component {
 
   render() {
     return (
-      <div className='Background' >
-        <p className='NavButton' id='homeButton1'>
-        <Button  onClick={this.handleClick}>Enter</Button>
-        </p>
+      <div  className='Home' id='background' >
+        <Button  className='NavButton' onClick={this.handleClick}>Enter</Button>
       </div>
     );
   }
