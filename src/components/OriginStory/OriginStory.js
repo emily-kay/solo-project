@@ -54,7 +54,7 @@ class OriginPage extends Component {
       <div >
         <h1>Origin Story</h1>
         <div className="OriginField">
-          Home Town <TextField onChange={this.handleFormChange} name="homeTown"/>
+          Home Town <textarea onChange={this.handleFormChange} name="homeTown" rows="4" cols="50"> </textarea>
           Personal Values <TextField onChange={this.handleFormChange} name="values"/>
           Goals, Hopes, Dreams <TextField onChange={this.handleFormChange} name="goals"/>
           Backstory <TextField onChange={this.handleFormChange} name="backstory"/>

@@ -29,21 +29,33 @@ button {
     box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
 }
 
+.Header {
+    grid-column: 2/5;
+    grid-row: 1/2;
+}
+
 .Home {
     display: grid;
-    grid-template-columns:  4fr 2fr 4fr;
-    grid-template-rows: 80fr 5fr 15fr;
+    grid-template-columns:  repeat(5, 2fr);
+    grid-template-rows: 30fr 80fr 5fr 15fr;
     justify-items: center;
     align-items: start;
 }
 
 .NavButton {
-    grid-column: 2/3;
-    grid-row: 2/3;
+    grid-column: 3/4;
+    grid-row: 3/4;
 }
 
 .PowersUL {
     display: grid;
     grid-template-columns: repeat(3, 2fr);
     grid-column-gap: 4em;
+}
+
+.WelcomeDescription {
+    padding: 3em;
+    grid-column: 2/5;
+    grid-row: 2/3;
+    font-size: 20pt;
 }
