@@ -3,7 +3,7 @@
 }
 
 .Background {
-    background-image: url(background.svg);
+    background-image: url(background.svg) !important;
     height: 100%;
     background-position: center;
     background-repeat: no-repeat;
@@ -60,11 +60,7 @@ h2 {
 }
 
 #homeButton1 {
-    padding: 40% 0% 0% 0%;
-}
-
-#homeButton2 {
-    padding: 0% 20% 0% 0%;
+    margin-left: 0% !important;
 }
 
 input {
@@ -82,8 +78,10 @@ input[type="submit"] {
 }
 
 .instructions {
-    background-color: #00acb0;
-    padding: 5px;
+    background-image: url(WELCOME.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 150px 200px;
     color: #ece7e7;
 }
 
@@ -125,6 +123,10 @@ li a:hover {
   background-color: #00acb0;
   width: 100%;
   border-radius: 0px;
+}
+
+.NavButton {
+    margin-top: 40% !important;
 }
 
 .OriginField {

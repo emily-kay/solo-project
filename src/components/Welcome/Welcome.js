@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 
 import { USER_ACTIONS } from '../../redux/actions/userActions';
 import Button from '@material-ui/core/Button';
+import Header from '../Header/Header';
 
 
 const mapStateToProps = state => ({
@@ -27,7 +28,9 @@ class InfoPage extends Component {
   render() {
     return (
       <div >
-        <Button onClick={this.handleChange}>Begin Your Adventure</Button>
+        <Header />
+        <br/>
+        <Button onClick={this.handleChange} className='NavButton'>Begin Your Adventure</Button>
       </div>
     );
   }

@@ -20,27 +20,19 @@ class HomePage extends Component {
     }
   }
 
-  handleClickNew = (event) => {
+  handleClick = (event) => {
     this.props.history.push('/welcome');
-  }
-
-  handleClickOld = (event) => {
-    this.props.history.push('/login');
   }
 
   render() {
     return (
       <div className='Background' >
-        <p id='homeButton1'>
-        <Button  onClick={this.handleClickNew}>New Creator</Button>
-        </p>
-        <p id='homeButton2'>
-        <Button  onClick={this.handleClickOld}>Returning Creator</Button>
+        <p className='NavButton' id='homeButton1'>
+        <Button  onClick={this.handleClick}>Enter</Button>
         </p>
       </div>
     );
   }
 }
 
-// this allows us to use <App /> in index.js
 export default connect(mapStateToProps)(HomePage);
