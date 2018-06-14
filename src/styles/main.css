@@ -1,3 +1,12 @@
+@font-face {
+    font-family: 'lane_-_narrowregular';
+    src: url('font/lanenar_-webfont.woff2') format('woff2'),
+         url('font/lanenar_-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
 #background {
     background-image: url(background.svg);
     grid-column: 1/4;
@@ -5,6 +14,11 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size:  cover;
+}
+
+body {
+    font-family: 'lane_-_narrowregular', 'Courier New';
+    text-align: center;
 }
 
 button:hover {
