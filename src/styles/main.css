@@ -56,6 +56,11 @@ button {
     align-items: start;
 }
 
+.Login {
+    grid-column: 3/4;
+    grid-row: 2/3;
+}
+
 .NavButton {
     grid-column: 3/4;
     grid-row: 3/4;
