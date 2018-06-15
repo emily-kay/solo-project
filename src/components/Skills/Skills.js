@@ -53,7 +53,7 @@ class SkillsPage extends Component {
   render() {
     return (
       <div >
-        <h1>Strengths and Weaknesses</h1>
+        <img src="Headers/SKILLS.jpg" />
         <p className="Directions">Here are some instructions! </p>
         <h2>{this.props.state.skillReducer.skillReducer.allCount}</h2>
         <ul className="skillsUL">{this.state.skills.map(data => {
