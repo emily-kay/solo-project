@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { triggerLogin, formError, clearError } from '../../redux/actions/loginActions';
+import { Button, Input } from '@material-ui/core';
 
 
 const mapStateToProps = state => ({
@@ -71,7 +72,7 @@ class LoginPage extends Component {
             <div>
               <label htmlFor="username">
                 Username:
-              <input
+              <Input
                   type="text"
                   name="username"
                   value={this.state.username}
@@ -82,7 +83,7 @@ class LoginPage extends Component {
             <div>
               <label htmlFor="password">
                 Password:
-              <input
+              <Input
                   type="password"
                   name="password"
                   value={this.state.password}
@@ -91,11 +92,12 @@ class LoginPage extends Component {
               </label>
             </div>
             <div>
-              <input
+              <Button
                 type="submit"
                 name="submit"
                 value="Log In"
-              />
+              >Sign in</Button>
+              <br/>
               <Link to="/register">Register</Link>
             </div>
           </form>
