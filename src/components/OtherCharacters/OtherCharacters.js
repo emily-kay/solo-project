@@ -50,17 +50,22 @@ class OtherCharactersPage extends Component {
 
   render() {
     return (
-      <div >
-        <h1>Other Characters</h1>
-        <div className="TextList">
-          <TextField label="Teammates" onChange={this.handleFormChange} name="teammates" />
-          <br />
-          <TextField label="Love Interests" onChange={this.handleFormChange} name="loves" />
-          <br />
-          <TextField label="Enemies" onChange={this.handleFormChange} name="enemies" />
-        </div>
-        <Button onClick={this.handleClick}>Onward!</Button>
+      <div className='Home' >
+      <div className='Header'>
+        <img src="Headers/OTHER.jpg" />
       </div>
+      <div className="OriginField">
+        Teammates
+        <textarea id="textGap" onChange={this.handleFormChange} name="teammates" rows="4" cols="50"> </textarea>
+        <br />
+        Love Interests
+        <textarea id="textGap" onChange={this.handleFormChange} name="loves" rows="4" cols="50"> </textarea>
+        <br />
+        Enemies
+        <textarea id="textGap" onChange={this.handleFormChange} name="enemies" rows="4" cols="50"> </textarea>
+      </div>
+      <Button className="NavButton1" onClick={this.handleClick}>Onward!</Button>
+    </div>
     );
   }
 }
