@@ -47,7 +47,9 @@ class TraitsPage extends Component {
   render() {
     return (
       <div >
-        <h1>Personality Traits</h1>
+      <div>
+        <img src="Headers/PERSONALITY.jpg" />
+      </div>
         <p className="Directions">Here's your opportunity to build out who your hero is as a person. 
           How would your hero interact with other people? What values or characteristics
           do they view as important? How would they describe themselves on their Tinder 
