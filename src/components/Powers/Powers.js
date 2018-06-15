@@ -47,7 +47,7 @@ class PowersPage extends Component {
   render() {
     return (
       <div >
-        <img src="Headers/SKILLS.jpg" />
+        <img src="Headers/POWERS.jpg" />
         <p className="Directions">Time to make your hero super! </p>
         <ul className="PowersUL">{this.state.powers.map(data => {
           return (

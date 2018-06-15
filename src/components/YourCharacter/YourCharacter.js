@@ -28,11 +28,12 @@ class YourCharacterPage extends Component {
   }
 
   componentDidMount() {
-    this.props.dispatch({ type: USER_ACTIONS.FETCH_USER });
+    // this.props.dispatch({ type: USER_ACTIONS.FETCH_USER });
     axios({
       method: 'GET',
       url: '/api/finale/supername'
     }).then((response) => {
+      console.log('DONT PANIC', response)
       this.setState({
         super: response.data[0]
       });
@@ -47,13 +48,6 @@ class YourCharacterPage extends Component {
     }
   }
 
-  handleUpdate = (event) => {
-    //update
-  }
-
-  handleDelete = (event) => {
-    //delete
-  }
 
   render() {
     return (
