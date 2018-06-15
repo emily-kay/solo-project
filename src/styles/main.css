@@ -71,10 +71,23 @@ button {
     grid-row: 3/4;
 }
 
+.OriginField {
+    grid-column: 3/4;
+    grid-row: 2/3;
+    justify-items: center;
+    align-items: center;
+}
+
 .PowersUL {
     display: grid;
     grid-template-columns: repeat(3, 2fr);
     grid-column-gap: 4em;
+}
+
+#textGap {
+    margin-bottom: 3em;
+    align-items: center;
+    text-align: center;
 }
 
 .WelcomeDescription {

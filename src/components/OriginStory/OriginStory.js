@@ -51,15 +51,21 @@ class OriginPage extends Component {
 
   render() {
     return (
-      <div >
-        <h1>Origin Story</h1>
-        <div className="OriginField">
-          Home Town <textarea onChange={this.handleFormChange} name="homeTown" rows="4" cols="50"> </textarea>
-          Personal Values <TextField onChange={this.handleFormChange} name="values"/>
-          Goals, Hopes, Dreams <TextField onChange={this.handleFormChange} name="goals"/>
-          Backstory <TextField onChange={this.handleFormChange} name="backstory"/>
+      <div className='Home' >
+        <div className='Header'>
+          <img src="Headers/ORIGIN_STORY.jpg" />
         </div>
-        <Button onClick={this.handleClick}>Onward!</Button>
+        <div className="OriginField">
+          Home Town 
+          <textarea id="textGap" onChange={this.handleFormChange} name="homeTown" rows="4" cols="50"> </textarea>
+          Personal Values 
+          <textarea id="textGap" onChange={this.handleFormChange} name="values" rows="4" cols="50"> </textarea>
+          Goals, Hopes, Dreams 
+          <textarea id="textGap" onChange={this.handleFormChange} name="goals" rows="4" cols="50"> </textarea>
+          Backstory 
+          <textarea id="textGap" onChange={this.handleFormChange} name="backstory" rows="4" cols="50"> </textarea>
+        </div>
+        <Button className="NavButton1" onClick={this.handleClick}>Onward!</Button>
       </div>
     );
   }
