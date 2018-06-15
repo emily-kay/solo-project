@@ -12,7 +12,15 @@ function* fetchUser() {
       user,
     });
     yield put({
+      type: USER_ACTIONS.SET_USER_ID,
+      user,
+    });
+    yield put({
       type: USER_ACTIONS.REQUEST_DONE,
+    });
+    yield put({
+      type: USER_ACTIONS.SET_USER_ID,
+      user,
     });
   } catch (error) {
     yield put({
