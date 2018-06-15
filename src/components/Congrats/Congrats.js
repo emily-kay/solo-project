@@ -29,8 +29,8 @@ class CongratsPage extends Component {
 
   render() {
     return (
-      <div >
-        <Button onClick={this.handleClick}>Reveal your Character</Button>
+      <div className="Home">
+        <img className="Header" src="Headers/CONGRATS.jpg" onClick={this.handleClick} />
       </div>
     );
   }
