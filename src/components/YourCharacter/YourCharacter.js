@@ -21,25 +21,25 @@ class YourCharacterPage extends Component {
   constructor() {
     super();
     this.state = {
-        super: {
-          super_name: '',
-        }
+      super: {
+        super_name: '',
+      }
     };
-}
-  
+  }
+
   componentDidMount() {
     this.props.dispatch({ type: USER_ACTIONS.FETCH_USER });
     axios({
-        method: 'GET',
-        url: '/api/finale/supername'
+      method: 'GET',
+      url: '/api/finale/supername'
     }).then((response) => {
-        this.setState({
-          super: response.data[0]
-        });
+      this.setState({
+        super: response.data[0]
+      });
     }).catch((error) => {
-        console.log('Error on the powers componentDidMount:', error);
+      console.log('Error on the powers componentDidMount:', error);
     });
-}
+  }
 
   componentDidUpdate() {
     if (!this.props.user.isLoading && this.props.user.userName === null) {
@@ -57,16 +57,19 @@ class YourCharacterPage extends Component {
 
   render() {
     return (
-      <div >
-        <h1>Your Character</h1>
-        {this.state.super.super_name}
-        <Origin />
-        <Traits />
-        <Skills />
-        <Powers />
-        <Gadgets />
-        <OtherCharacters />
-        <Button onClick={this.handleDelete}>Delete!</Button>
+      <div className="Home">
+        <div className="Header">
+          <h1>Your Character</h1>
+          <h2>{this.state.super.super_name}</h2>
+        </div>
+        <div className="Accordian">
+          <Origin />
+          <Traits />
+          <Skills />
+          <Powers />
+          <Gadgets />
+          <OtherCharacters />
+        </div>
       </div>
     );
   }
