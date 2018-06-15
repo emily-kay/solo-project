@@ -50,9 +50,11 @@ class AboutPage extends Component {
 
   render() {
     return (
-      <div >
-        <h1>About Your Character</h1>
-        <div className="AboutList">
+      <div className='Home' >
+        <div className='Header'>
+          <img src="Headers/ABOUT.jpg" />
+        </div>
+        <div className="Login">
           <TextField label="First Name" onChange={this.handleFormChange} name="firstName" />
           <br />
           <TextField label="Last Name" onChange={this.handleFormChange} name="lastName" />
@@ -60,7 +62,7 @@ class AboutPage extends Component {
           <TextField label="Superhero Name" onChange={this.handleFormChange} name="superName" />
           <br />
         </div>
-        <Button onClick={this.handleClick}>Onward</Button>
+        <Button  className="NavButton1" onClick={this.handleClick}>Onward</Button>
       </div>
     );
   }
