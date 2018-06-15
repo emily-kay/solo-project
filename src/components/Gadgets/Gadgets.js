@@ -50,16 +50,21 @@ class GadgetsPage extends Component {
 
   render() {
     return (
-      <div >
-        <h1>Gadgets</h1>
-        <div className="TextList">
-          <TextField label="Weapons" onChange={this.handleFormChange} name="weapons"/>
-          <br />
-          <TextField label="Vehicles" onChange={this.handleFormChange} name="vehicles"/>
-          <br />
-          <TextField label="Lairs" onChange={this.handleFormChange} name="lairs"/>
+      <div className='Home' >
+        <div className='Header'>
+          <img src="Headers/GADGETS.jpg" />
         </div>
-        <Button onClick={this.handleClick}>Onward!</Button>
+        <div className="OriginField">
+          Weapons
+          <textarea id="textGap" onChange={this.handleFormChange} name="weapons" rows="4" cols="50"> </textarea>
+          <br />
+          Vehicles
+          <textarea id="textGap" onChange={this.handleFormChange} name="vehicles" rows="4" cols="50"> </textarea>
+          <br />
+          Lairs
+          <textarea id="textGap" onChange={this.handleFormChange} name="lairs" rows="4" cols="50"> </textarea>
+        </div>
+        <Button className="NavButton1" onClick={this.handleClick}>Onward!</Button>
       </div>
     );
   }
