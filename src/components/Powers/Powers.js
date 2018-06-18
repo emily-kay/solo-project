@@ -48,7 +48,16 @@ class PowersPage extends Component {
     return (
       <div >
         <img src="Headers/POWERS.jpg" />
-        <p className="Directions">Time to make your hero super! </p>
+        <p className="Directions">
+        Time to make your hero super! While you're free
+        to choose as many powers as you want, Superman doesn't make for a very 
+        interesting character. If your hero only has a couple of powers, they 
+        will eventually come up with more creative ways to use them.
+        </p>
+        <p>
+        *As a note, MacGyver refers to the ability to create things you need
+        in a moment's notice.
+        </p>
         <ul className="PowersUL">{this.state.powers.map(data => {
           return (
             <li className="powersLI" key={data.id}>

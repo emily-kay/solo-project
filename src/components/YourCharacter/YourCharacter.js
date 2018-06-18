@@ -3,13 +3,13 @@ import { connect } from 'react-redux';
 import axios from 'axios';
 
 import { USER_ACTIONS } from '../../redux/actions/userActions';
-import { Button } from '@material-ui/core';
 import Origin from '../Finale/Origin';
 import Traits from '../Finale/Traits';
 import Skills from '../Finale/Skills';
 import Powers from '../Finale/Powers';
 import Gadgets from '../Finale/Gadgets';
 import OtherCharacters from '../Finale/OtherCharacters';
+import ThankYous from '../Finale/ThankYous';
 
 
 const mapStateToProps = state => ({
@@ -53,8 +53,8 @@ class YourCharacterPage extends Component {
     return (
       <div className="Home">
         <div className="Header">
-          <h1>Your Character</h1>
           <h2>{this.state.super.super_name}</h2>
+          <img className="CharacterImage" src="Characters/The_Great_Illusion.jpg" />
         </div>
         <div className="Accordian">
           <Origin />
@@ -63,6 +63,7 @@ class YourCharacterPage extends Component {
           <Powers />
           <Gadgets />
           <OtherCharacters />
+          <ThankYous />
         </div>
       </div>
     );

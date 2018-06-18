@@ -54,6 +54,8 @@ class OriginPage extends Component {
       <div className='Home' >
         <div className='Header'>
           <img src="Headers/ORIGIN_STORY.jpg" />
+          <p>Really take the time to get in the mind of your hero. Take up as much space
+          as you need to help get a sense of who they are. You can expand the fields if you need more room.</p>
         </div>
         <div className="OriginField">
           Home Town 

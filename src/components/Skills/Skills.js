@@ -54,8 +54,14 @@ class SkillsPage extends Component {
     return (
       <div >
         <img src="Headers/SKILLS.jpg" />
-        <p className="Directions">Here are some instructions! </p>
+        <p className="Directions">Based on your answers on the last page, you've been 
+        given a set amount of points to spend here. While all of the traits listed below 
+        would likely benefit your hero, the lack of them would surely be a detrement. Leave
+        patient at a 0 and your hero would probably be a bit of a hot head. If selfless has
+        no points, your hero would probably save themselves over a helpless bystander. Think
+        carefully about how your character will be impacted.</p>
         <h2>{this.props.state.skillReducer.skillReducer.allCount}</h2>
+        <h3>Points to Spend</h3>
         <ul className="skillsUL">{this.state.skills.map(data => {
           return (
             <li className="skillsLI" key={data.id}>

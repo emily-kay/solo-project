@@ -11,7 +11,7 @@ const mapStateToProps = state => ({
 
 class CongratsPage extends Component {
   componentDidMount() {
-    this.props.dispatch({type: USER_ACTIONS.FETCH_USER});
+    this.props.dispatch({ type: USER_ACTIONS.FETCH_USER });
   }
 
   componentDidUpdate() {
@@ -30,7 +30,13 @@ class CongratsPage extends Component {
   render() {
     return (
       <div className="Home">
-        <img className="Header" src="Headers/CONGRATS.jpg" onClick={this.handleClick} />
+        <div className="Header">
+          <h2>
+            You did it! By now you should have a pretty decent idea of who your character is
+            as a person. Are you ready to see what they look like?
+          </h2>
+          <img src="Headers/CONGRATS.jpg" onClick={this.handleClick} />
+        </div>
       </div>
     );
   }

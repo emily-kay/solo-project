@@ -53,6 +53,12 @@ class OtherCharactersPage extends Component {
       <div className='Home' >
       <div className='Header'>
         <img src="Headers/OTHER.jpg" />
+        <p>
+            *Almost* done. Here you can put any of the other people in your hero's life. Who do they 
+            fight with? Against? For? The people we care about (or don't in some cases) have an effect
+            on how we move about in the world. There's plenty of space to do more than name them so take
+            a shot at describing them as well. 
+          </p>
       </div>
       <div className="OriginField">
         Teammates

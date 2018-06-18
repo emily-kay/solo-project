@@ -53,6 +53,8 @@ class AboutPage extends Component {
       <div className='Home' >
         <div className='Header'>
           <img src="Headers/ABOUT.jpg" />
+          <p>Let's get started! Tell us the name your hero goes by both 
+          with the mask on and off.</p>
         </div>
         <div className="Login">
           <TextField label="First Name" onChange={this.handleFormChange} name="firstName" />

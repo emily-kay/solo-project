@@ -53,6 +53,11 @@ class GadgetsPage extends Component {
       <div className='Home' >
         <div className='Header'>
           <img src="Headers/GADGETS.jpg" />
+          <p>
+            Here's where you take over. Whatever additional physical things you want to include in your world, 
+            here's a spot to put them. Maybe your character has an item that they get their powers from. Maybe
+            they have a unique form of travel. Whatever it is, find a spot. 
+          </p>
         </div>
         <div className="OriginField">
           Weapons
