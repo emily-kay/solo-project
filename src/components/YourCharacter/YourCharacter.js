@@ -28,18 +28,23 @@ class YourCharacterPage extends Component {
   }
 
   componentDidMount() {
-    // this.props.dispatch({ type: USER_ACTIONS.FETCH_USER });
-    axios({
-      method: 'GET',
-      url: '/api/finale/supername'
-    }).then((response) => {
-      console.log('DONT PANIC', response)
-      this.setState({
-        super: response.data[0]
+    this.props.dispatch({ type: USER_ACTIONS.FETCH_USER, property: 'finale'});
+  }
+
+  componentWillUpdate() {
+    if (this.state.super.super_name === ''){
+      axios({
+        method: 'GET',
+        url: '/api/finale/supername'
+      }).then((response) => {
+        console.log('DONT PANIC', response)
+        this.setState({
+          super: response.data[0]
+        });
+      }).catch((error) => {
+        console.log('Error on the powers componentDidMount:', error);
       });
-    }).catch((error) => {
-      console.log('Error on the powers componentDidMount:', error);
-    });
+    }
   }
 
   componentDidUpdate() {
